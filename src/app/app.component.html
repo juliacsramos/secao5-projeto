@@ -1,3 +1,4 @@
+<h1><b>Property e Event Binding:</b></h1>
 <input id="meu-input" 
 [value]="inputText" 
 [type]="inputType" 
@@ -12,5 +13,36 @@
 <button (click)="setTextInput()">Habilitar texto</button>
 <br/>
 <button (click)="logInputText()">Log</button>
+<br/>
+<h1><b>Attribute Binding:</b></h1>
+<br/>
+<button [attr.title]="buttonTitle">Teste</button>
+<button [attr.disabled]="buttonDisabled ? true : null">Disabled</button>
+<button (click)="onButtonClick()">Mudar</button>
+<br/> 
+<h1><b>Style Binding:</b></h1>
+<br/>
+<button style="margin-right: 8px; width: 100px; background-color: rgb(77, 200, 241);">Botão 0</button>
+<button style = "margin-right: 8px;" [style.width]="widthButton1" [style.backgroundColor]="'yellow'">Botão 1</button>
+<button style = "margin-right: 8px;" [style.width.px]="widthButton2" [style.backgroundColor]="'lightgreen'">Botão 2</button>
+<br/>
+<button [style]="'margin-right: 8px; width: 100px; background-color: pink;'">Botão 3</button>
+<button [style]="{marginRight: '8px', width: '130px', backgroundColor: 'orange'}">Botão 4</button>
+<button [style]="styleObject">Botão 5</button>
+<br/>
+<button style="margin-right: 8px; width: 100px;" (click)="updateStyleObject()">Update estilo</button>
+<button style="margin-right: 8px; width: 130px;" (click)="updateWidth()">Update tamanho</button>
+<h1><b>Class Binding:</b></h1>
+<br/>
+<button style="margin-right: 8px;"[class.red-button]="isRedButton" (click)="isBlueButton= false;">Red Button</button>
+<button style="margin-right: 8px;"[class.blue-button]="true" (click)="isBlueButton= true">Blue Button</button>
+<button [class]="{
+    'red-button': !isBlueButton,
+    'blue-button': isBlueButton
+}">Obj Button</button>
+<br/>
+
 
 <!--colchetes é para enviar um atributo, parênteses é para ouvir um evento-->
+<!--property binding e event binding-->
+<!--style e class binding fazem uso de property e event binding-->
